@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "801247087152",
+    "project_id": "shopsphere-2696b",
+    "storage_bucket": "shopsphere-2696b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801247087152:android:0754d94a744c2918947bf5",
+        "android_client_info": {
+          "package_name": "com.ruhlanusubov.shopsphere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI9QTkQXi-sD0MxJ8XRz7Z7GUR7HviJZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
