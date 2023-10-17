@@ -1,13 +1,22 @@
 package com.ruhlanusubov.shopsphere.ui.validation
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.ruhlanusubov.shopsphere.R
 import com.ruhlanusubov.shopsphere.databinding.FragmentLoginBinding
 import com.ruhlanusubov.shopsphere.utils.SpService
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -18,7 +27,6 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private val auth=FirebaseAuth.getInstance()
     private lateinit var sp:SharedPreferences
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,8 +38,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setup()
     }
+
 
     private fun setup(){
         with(binding){
@@ -42,6 +52,12 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
             }
             forgot.setOnClickListener {
+
+            }
+            google.setOnClickListener {
+
+            }
+            facebook.setOnClickListener {
 
             }
         }

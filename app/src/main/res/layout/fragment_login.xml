@@ -209,6 +209,7 @@
             app:iconGravity="textStart"
             app:iconTint="@null"
             app:iconSize="25dp"
+            app:rippleColor="@color/main_color"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 
@@ -222,6 +223,7 @@
             app:iconGravity="textStart"
             app:iconTint="@null"
             app:iconSize="25dp"
+            app:rippleColor="@color/main_color"
             android:text="Login with Facebook"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -260,6 +262,4 @@
             app:rippleColor="@color/white" />
 
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,6 +69,8 @@ dependencies {
     //FireStore
     implementation("com.google.firebase:firebase-storage-ktx")
 
+    //Google Sign-in
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
     //Lottie
     implementation ("com.airbnb.android:lottie:$lottieVersion")
 

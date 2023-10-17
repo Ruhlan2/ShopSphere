@@ -3,5 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="create_new_account">Create New Account</string>
+    <string name="home">Home</string>
+    <string name="wish">Wishlist</string>
+    <string name="cart">Cart</string>
+    <string name="notification">Notification</string>
+    <string name="your_web_client_id">801247087152-ak7h8013v3v9l80c4tpjeukrdc7nhmng.apps.googleusercontent.com</string>
 
 </resources>

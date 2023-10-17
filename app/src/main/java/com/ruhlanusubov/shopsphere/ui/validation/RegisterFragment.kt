@@ -62,14 +62,20 @@ class RegisterFragment : Fragment() {
          if(name.isEmpty()||email.isEmpty()||password.isEmpty()||confirm.isEmpty()){
             FancyToast.makeText(requireContext(),"Please fill the blanks",FancyToast.LENGTH_SHORT,FancyToast.WARNING,false).show()
             return@with
-         }
-         auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
-            FancyToast.makeText(requireContext(),"User Created",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show()
-            sp=SpService.preference(requireContext())
-            sp.edit().putString("UserId",it.user?.uid).apply()
-            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToHomeFragment())
-         }.addOnFailureListener {
-            FancyToast.makeText(requireContext(),it.localizedMessage,FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+         }else{
+            if(confirm==password){
+               auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
+                  FancyToast.makeText(requireContext(),"User Created",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show()
+                  sp=SpService.preference(requireContext())
+                  sp.edit().putString("UserId",it.user?.uid).apply()
+                  findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToHomeFragment())
+               }.addOnFailureListener {
+                  FancyToast.makeText(requireContext(),it.localizedMessage,FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+               }
+            }else{
+               FancyToast.makeText(requireContext(),"Password doesn't match",FancyToast.LENGTH_SHORT,FancyToast.WARNING,false).show()
+
+            }
          }
       }
    }
