@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgetFragment"
+            app:destination="@id/forgetFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -73,4 +76,9 @@
         android:name="com.ruhlanusubov.shopsphere.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/forgetFragment"
+        android:name="com.ruhlanusubov.shopsphere.ui.validation.ForgetFragment"
+        android:label="fragment_forget"
+        tools:layout="@layout/fragment_forget" />
 </navigation>
