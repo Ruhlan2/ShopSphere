@@ -77,4 +77,17 @@ dependencies {
 
     //Fancy Toast
     implementation ("io.github.shashank02051997:FancyToast:2.0.2")
+
+    //CircleImageView
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    //Retrofit
+    implementation ("com.google.code.gson:gson:2.10")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+
 }

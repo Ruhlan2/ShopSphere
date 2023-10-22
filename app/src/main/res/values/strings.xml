@@ -7,6 +7,27 @@
     <string name="wish">Wishlist</string>
     <string name="cart">Cart</string>
     <string name="notification">Notification</string>
-    <string name="your_web_client_id">801247087152-ak7h8013v3v9l80c4tpjeukrdc7nhmng.apps.googleusercontent.com</string>
-
+    <string name="welcome_back">Welcome Back</string>
+    <string name="loginDetail">Log in to your account using email\nor social networks</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="loginWith">Or login with</string>
+    <string name="google">Login with Google</string>
+    <string name="facebook">Login with Facebook</string>
+    <string name="first">First time here?</string>
+    <string name="signUp">Sign up</string>
+    <string name="registerDetail">Looks like you don\'t have an account\nor connect with social networks</string>
+    <string name="name">Name</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="already">Already have an account?</string>
+    <string name="welcome">Hey👋🏻</string>
+    <string name="let">Let\'s find your\nExclusive Outfit</string>
+    <string name="search">Search</string>
+    <string name="category">Top Categories</string>
+    <string name="brand">Top Brands</string>
+    <string name="category_name">Ca</string>
+    <string name="view_all">View All</string>
+    <string name="popular">Popular Products</string>
 </resources>

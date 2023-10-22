@@ -9,9 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +36,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sp=SpService.preference(requireContext())
         setup()
     }
 
@@ -52,7 +50,7 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
             }
             forgot.setOnClickListener {
-
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgetFragment())
             }
             google.setOnClickListener {
 
@@ -78,13 +76,19 @@ class LoginFragment : Fragment() {
             auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
                 FancyToast.makeText(requireContext(),"Successfully signed in",
                     FancyToast.LENGTH_SHORT,
-                    FancyToast.WARNING,false).show()
-                sp=SpService.preference(requireContext())
+                    FancyToast.SUCCESS,false).show()
                 sp.edit().putString("UserId",it.user?.uid).apply()
 
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
             }.addOnFailureListener {
 
+                FancyToast.makeText(requireContext(),it.localizedMessage,
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.WARNING,false).show()
+
+               if(email==auth.currentUser?.email){
+                   sp.edit().putString("email",email).apply()
+               }
             }
 
         }
