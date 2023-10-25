@@ -30,4 +30,7 @@
     <string name="category_name">Ca</string>
     <string name="view_all">View All</string>
     <string name="popular">Popular Products</string>
+    <string name="desc">Descriptions</string>
+    <string name="read">Read More</string>
+    <string name="add_cart">Add to Cart</string>
 </resources>

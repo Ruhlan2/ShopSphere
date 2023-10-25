@@ -60,7 +60,11 @@
         android:id="@+id/homeFragment"
         android:name="com.ruhlanusubov.shopsphere.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/wishFragment"
         android:name="com.ruhlanusubov.shopsphere.ui.wish.WishFragment"
@@ -81,4 +85,13 @@
         android:name="com.ruhlanusubov.shopsphere.ui.validation.ForgetFragment"
         android:label="fragment_forget"
         tools:layout="@layout/fragment_forget" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ruhlanusubov.shopsphere.ui.home.detail.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="data"
+            app:argType="com.ruhlanusubov.shopsphere.model.product.Product" />
+    </fragment>
 </navigation>

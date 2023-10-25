@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ruhlanusubov.shopsphere.R
 import com.ruhlanusubov.shopsphere.adapter.BrandAdapter
 import com.ruhlanusubov.shopsphere.adapter.CategoryAdapter
+import com.ruhlanusubov.shopsphere.adapter.ProductAdapter
 import com.ruhlanusubov.shopsphere.api.ApiUtil
 import com.ruhlanusubov.shopsphere.databinding.FragmentHomeBinding
 import com.ruhlanusubov.shopsphere.model.category.Category
@@ -27,6 +29,7 @@ class HomeFragment : Fragment() {
      private val service=ApiUtil.getService()
      private val category=CategoryAdapter()
      private val brand=BrandAdapter()
+     private val product=ProductAdapter()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,8 +43,32 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         categoryData()
         brandData()
+        productData()
         categoryAdapter()
         brandAdapter()
+        productAdapter()
+    }
+    private fun productData(){
+        service.getProduct().enqueue(object :Callback<ProductResponse>{
+            override fun onResponse(
+                call: Call<ProductResponse>,
+                response: Response<ProductResponse>
+            ) {
+                if (response.isSuccessful){
+                    response.body()?.let {
+                        product.updateList(it.products?: emptyList())
+                    }
+                }else{
+                    FancyToast.makeText(requireContext(),"Error",FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+
+                }
+            }
+
+            override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+                FancyToast.makeText(requireContext(),t.localizedMessage,FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+            }
+
+        })
     }
     private fun brandData(){
 
@@ -51,6 +78,9 @@ class HomeFragment : Fragment() {
                     response.body()?.let {
                         brand.updateList(it.products?: emptyList())
                     }
+                }else{
+                    FancyToast.makeText(requireContext(),"Error",FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+
                 }
             }
 
@@ -68,6 +98,9 @@ class HomeFragment : Fragment() {
                     response.body()?.let {
                         category.updateList(it)
                     }
+                }else{
+                    FancyToast.makeText(requireContext(),"Error",FancyToast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+
                 }
             }
 
@@ -88,6 +121,12 @@ class HomeFragment : Fragment() {
         with(binding.brandRv){
             layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             adapter=brand
+        }
+    }
+    private fun productAdapter(){
+        with(binding.productRv){
+            layoutManager=GridLayoutManager(requireContext(),2)
+            adapter=product
         }
     }
 

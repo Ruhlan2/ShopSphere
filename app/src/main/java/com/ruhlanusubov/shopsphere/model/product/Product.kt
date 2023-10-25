@@ -1,8 +1,11 @@
 package com.ruhlanusubov.shopsphere.model.product
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Product(
     @SerializedName("brand")
     val brand: String?,
@@ -26,4 +29,4 @@ data class Product(
     val thumbnail: String?,
     @SerializedName("title")
     val title: String?
-)
+):Parcelable

@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface Service {
 
     @GET("products")
-    fun getProduct():Call<Product>
+    fun getProduct():Call<ProductResponse>
 
     @GET("products")
     fun topBrands(
