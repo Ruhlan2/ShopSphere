@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.denzcoskun.imageslider.models.SlideModel
 import com.ruhlanusubov.shopsphere.R
@@ -31,18 +32,34 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setup()
     }
-
     private fun setup(){
         with(binding){
             val productData=args.data
-
+            var number = 1
                 with(productData){
-                    productTitle.text=title
+                    productTitle.text=brand
                     appCompatRatingBar.rating=rating!!.toFloat()
                     ratingNumber.text="($rating)"
-                    productBrand.text=brand
-                    productPrice.text="$$price"
+                    productBrand.text=title
+                    productPrice.text="$${price}"
                     productDesc.text=description
+
+                    increase.setOnClickListener {
+                        number++
+                        count.text = number.toString()
+                        productPrice.text="$${number* price!!}"
+                    }
+                    decrease.setOnClickListener {
+                        if (number > 1) {
+                            number--
+                            count.text = number.toString()
+                            productPrice.text = "$${number * price!!}"
+
+                        } else {
+                            decrease.isEnabled = false
+                        }
+                    }
+
                 }
 
                 val imageList=ArrayList<SlideModel>()

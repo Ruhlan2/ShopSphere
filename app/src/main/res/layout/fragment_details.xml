@@ -94,6 +94,7 @@
 
 
         <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginEnd="10dp"
@@ -104,29 +105,32 @@
             app:layout_constraintTop_toTopOf="@+id/product_brand">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/decrease"
                 style="@style/Widget.Material3.Button.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cornerRadius="0dp"
+                app:cornerRadius="2dp"
                 app:icon="@drawable/remove"
                 app:iconTint="@color/black"
                 app:rippleColor="@color/main_color" />
 
             <TextView
+                android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
+                android:maxLength="3"
                 android:paddingHorizontal="10dp"
                 android:text="1"
-                android:maxLength="3"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/increase"
                 style="@style/Widget.Material3.Button.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cornerRadius="0dp"
+                app:cornerRadius="2dp"
                 app:icon="@drawable/add"
                 app:iconTint="@color/black"
                 app:rippleColor="@color/main_color" />
@@ -136,12 +140,13 @@
 
         <TextView
             android:id="@+id/product_brand"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo_bhaijaan"
             android:text="Dennis Logo"
             android:textColor="@color/black"
             android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
             app:layout_constraintStart_toStartOf="@+id/appCompatRatingBar"
             app:layout_constraintTop_toBottomOf="@+id/appCompatRatingBar" />
 
@@ -220,6 +225,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialDivider3">

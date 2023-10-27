@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                      R.id.loginFragment,
                      R.id.introFragment,
                      R.id.splashFragment,
+                     R.id.detailsFragment,
                      R.id.registerFragment->{
                         binding.bottomNavigationView.visibility= View.GONE
                     }else->{
